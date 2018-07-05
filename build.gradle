@@ -17,7 +17,7 @@ publishPlugin {
 }
 
 patchPluginXml {
-    sinceBuild ''
+    sinceBuild '145.0'
     untilBuild ''
     changeNotes """
         Support 2018.2<br/>

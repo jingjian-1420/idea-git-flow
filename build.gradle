@@ -1,0 +1,25 @@
+plugins {
+    id 'org.jetbrains.intellij' version '0.3.4'
+}
+
+group 'cn.rieon.idea'
+version '1.0'
+
+intellij {
+    version '182.3569.1'
+    downloadSources true
+    plugins = ['Git4Idea', "Tasks"]
+}
+
+publishPlugin {
+    username "$JETBRAINS_USERNAME"
+    password "$JETBRAINS_PASSWORD"
+}
+
+patchPluginXml {
+    sinceBuild ''
+    untilBuild ''
+    changeNotes """
+        Support 2018.2<br/>
+      """
+}

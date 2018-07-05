@@ -5,3 +5,5 @@
 *.jar
 out
 *.iml
+.gradle/
+build/

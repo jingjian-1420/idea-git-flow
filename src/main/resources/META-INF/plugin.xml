@@ -1,0 +1,67 @@
+<idea-plugin>
+  <id>cn.rieon.idea.git-flow</id>
+
+  <name>Git Flow</name>
+  <description>
+    <![CDATA[
+      Git Flow Integration (forked from Opher Vishnia) <br/>
+      <a href="https://github.com/rieonke/idea-git-flow">GitHub Repo</a>
+    ]]>
+  </description>
+  <category>VCS Integration</category>
+  <vendor email="rieon@rieon.cn" url="https://rieon.cn">Rieon Ke</vendor>
+
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.vcs</depends>
+  <depends>com.intellij.tasks</depends>
+  <depends>Git4Idea</depends>
+
+  <actions>
+    <action class="cn.rieon.idea.git.flow.actions.OpenGitflowPopup" id="Gitflow.OpenGitflowPopup"
+      text="Gitflow Operations Popup..."/>
+
+    <action class="cn.rieon.idea.git.flow.actions.InitRepoAction" id="Gitflow.InitRepo"
+      text="Initialize Gitflow Repository"/>
+
+    <action class="cn.rieon.idea.git.flow.actions.StartFeatureAction" id="Gitflow.StartFeature"
+      text="Gitflow: Start Feature..."/>
+    <action class="cn.rieon.idea.git.flow.actions.FinishFeatureAction" id="Gitflow.FinishFeature"
+      text="Gitflow: Finish Feature..."/>
+    <action class="cn.rieon.idea.git.flow.actions.PublishFeatureAction" id="Gitflow.PublishFeature"
+      text="Gitflow: Publish Feature"/>
+    <action class="cn.rieon.idea.git.flow.actions.TrackFeatureAction" id="Gitflow.TrackFeature"
+      text="Gitflow: Track Feature..."/>
+
+    <action class="cn.rieon.idea.git.flow.actions.StartReleaseAction" id="Gitflow.StartRelease"
+      text="Gitflow: Start Release..."/>
+    <action class="cn.rieon.idea.git.flow.actions.FinishReleaseAction" id="Gitflow.FinishRelease"
+      text="Gitflow: Finish Release"/>
+    <action class="cn.rieon.idea.git.flow.actions.PublishReleaseAction" id="Gitflow.PublishRelease"
+      text="Gitflow: Publish Release"/>
+    <action class="cn.rieon.idea.git.flow.actions.TrackReleaseAction" id="Gitflow.TrackRelease"
+      text="Gitflow: Track Release..."/>
+
+    <action class="cn.rieon.idea.git.flow.actions.StartHotfixAction" id="Gitflow.StartHotfix"
+      text="Gitflow: Start Hotfix..."/>
+    <action class="cn.rieon.idea.git.flow.actions.FinishHotfixAction" id="Gitflow.FinishHotfix"
+      text="Gitflow: Finish Hotfix"/>
+    <action class="cn.rieon.idea.git.flow.actions.PublishHotfixAction" id="Gitflow.PublishHotfix"
+      text="Gitflow: Publish Hotfix"/>
+  </actions>
+
+  <project-components>
+    <component>
+      <implementation-class>cn.rieon.idea.git.flow.GitflowComponent</implementation-class>
+    </component>
+  </project-components>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="cn.rieon.idea.git.flow.GitflowImpl"
+      serviceInterface="cn.rieon.idea.git.flow.Gitflow"/>
+    <applicationService serviceImplementation="cn.rieon.idea.git.flow.GitflowState"
+      serviceInterface="cn.rieon.idea.git.flow.GitflowState"/>
+    <projectConfigurable instance="cn.rieon.idea.git.flow.GitflowConfigurable"/>
+    <tasks.dialogPanelProvider
+      implementation="cn.rieon.idea.git.flow.ui.GitflowTaskDialogPanelProvider"/>
+  </extensions>
+</idea-plugin>
